@@ -67,9 +67,59 @@ h2 {
     margin-bottom: 10px;
 }
 article div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     font-size: 32px;
     font-weight: bold;
+    text-align: center;
     background-color: purple;
     border: 2px solid rgb(32, 0, 32)
-    
 }
+
+/****************************
+        Grid Styles
+******************************/
+
+section.one article {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: 120px 120px;
+}
+
+section.two article {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 120px;
+}
+section.two div:nth-child(1) {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+section.two div:nth-child(2) {
+    grid-column-start: 2;
+    grid-column-end: 5;
+    grid-row-start: 2;
+    grid-row-end: 3;
+}
+section.two div:nth-child(6) {
+    grid-column-start: 1;
+    grid-column-end: span 4;
+}
+section.three article {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-auto-rows: 120px;
+    grid-auto-flow: dense;
+    gap: 1em 1em;
+
+}
+section.three div:nth-child(2) {
+    order: 1;
+}
+section.three div:nth-child(5) {
+    grid-area: 2 / 1 / span 2 / span 2;
+}
+
